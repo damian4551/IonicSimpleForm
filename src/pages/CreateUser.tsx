@@ -1,14 +1,19 @@
-import { IonButton, IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonBackButton, IonButtons, IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 
-interface IHomeProps {
+import CreateUserForm from '../components/forms/CreateUserForm/CreateUserForm';
+
+interface ICreateUserProps {
     pageTitle: string
 }
 
-const Home: React.FC<IHomeProps> = ({ pageTitle }: IHomeProps) => {
+const CreateUser: React.FC<ICreateUserProps> = ({pageTitle}: ICreateUserProps) => {
     return (
         <IonPage>
             <IonHeader>
                 <IonToolbar>
+                    <IonButtons slot="start">
+                        <IonBackButton></IonBackButton>
+                    </IonButtons>
                     <IonTitle>{pageTitle}</IonTitle>
                 </IonToolbar>
             </IonHeader>
@@ -18,12 +23,10 @@ const Home: React.FC<IHomeProps> = ({ pageTitle }: IHomeProps) => {
                         <IonTitle size="large">{pageTitle}</IonTitle>
                     </IonToolbar>
                 </IonHeader>
-                <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100%", flexDirection: "column" }}>
-                    <IonButton routerLink='/create-user'>Dodaj użytkownika</IonButton>
-                </div>
+                <CreateUserForm />
             </IonContent>
         </IonPage>
     );
 };
 
-export default Home;
+export default CreateUser;
