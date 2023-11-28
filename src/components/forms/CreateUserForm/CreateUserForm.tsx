@@ -68,10 +68,9 @@ const CreateUserForm: React.FC = () => {
         tempState[fieldName][fieldId] = value;
 
         setFormData(tempState);
-        console.log(formData);
     };
 
-    const handleChange = (fieldName: string, value: string) => {
+    const handleChange = (fieldName: string, value: string): void => {
         setFormData((prevFormData) => ({
             ...prevFormData,
             [fieldName]: value,
