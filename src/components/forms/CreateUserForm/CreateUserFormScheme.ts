@@ -1,11 +1,6 @@
-interface IFieldOptions {
-    type: string,
-    label: string,
-    placeholder?: string,
-    rules?: Object
-}
+import { IFieldOptions, IFormScheme } from "../types";
 
-export const createUserFormScheme: Record<string, IFieldOptions> = {
+export const createUserFormScheme: IFormScheme<IFieldOptions> = {
     'login': {
         'type': 'text',
         'label': 'Login:',
@@ -36,7 +31,7 @@ export const createUserFormScheme: Record<string, IFieldOptions> = {
                 value: true,
                 message: 'Pole wymagane'
             },
-            minLength : {
+            minLength: {
                 value: 8,
                 message: 'Hasło powinno zawierać minimum 8 znaków'
             },
@@ -64,8 +59,8 @@ export const createUserFormScheme: Record<string, IFieldOptions> = {
             }
         }
     },
-    'phone': {
-        'type': 'number',
+    'phones': {
+        'type': 'text',
         'label': 'Telefon:',
         'placeholder': '123456789',
         'rules': {
@@ -73,15 +68,17 @@ export const createUserFormScheme: Record<string, IFieldOptions> = {
                 value: true,
                 message: 'Pole wymagane'
             },
-            minLength : {
+            minLength: {
                 value: 9,
                 message: 'Numer powinien zawierać minimum 9 znaków'
             },
-            maxLength : {
+            maxLength: {
                 value: 9,
                 message: 'Numer powinien zawierać maksymalnie 9 znaków'
             },
-        }
+        },
+        'multiple': true,
+        'multipleName': 'phone'
     },
     'province': {
         'type': 'text',
@@ -96,11 +93,11 @@ export const createUserFormScheme: Record<string, IFieldOptions> = {
     'street': {
         'type': 'text',
         'label': 'Ulica:',
-        'placeholder': 'Poznańska',
+        'placeholder': 'Poznańska 1',
     },
-    'streetNumber': {
-        'type': 'text',
-        'label': 'Numer ulicy:',
-        'placeholder': '1/1',
+    'houseNumber': {
+        'type': 'number',
+        'label': 'Numer mieszkania:',
+        'placeholder': '10',
     },
 }
